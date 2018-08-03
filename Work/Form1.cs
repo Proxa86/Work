@@ -1922,19 +1922,15 @@ dFoundTmpNumber.Count, dNotFoundTmpSrcInBin.Count, lNoFoundTmpInSrc.Count, dRepe
                         { // считываем выбранный файл
                             StreamReader readFile = new StreamReader(myStream);
                             string line = "";
-                            //int countLine = 0;
                             // считываем по строке файл
                             while ((line = readFile.ReadLine()) != null)
                             {
                                 // сохраняем в лист строки
                                 lStringsFile.Add(line);
-                                //countLine++;
                             }
                             readFile.Close();
-                            //Console.WriteLine(countLine);
                         }
-
-                       
+                                              
                         foreach(var l in lStringsFile)
                         {
                             string [] tmp = l.Split(new char[] { '\t' } );
@@ -1943,7 +1939,6 @@ dFoundTmpNumber.Count, dNotFoundTmpSrcInBin.Count, lNoFoundTmpInSrc.Count, dRepe
                             else lPath.Add(tmp[1]);
                         }
                     }
-
                     foreach(var d in lPath)
                     {
                         File.Delete(d);
