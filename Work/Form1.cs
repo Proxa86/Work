@@ -1894,5 +1894,67 @@ dFoundTmpNumber.Count, dNotFoundTmpSrcInBin.Count, lNoFoundTmpInSrc.Count, dRepe
         {
             buttonOpenReport_Click(sender, e);
         }
+
+        //==================================================================
+        // Для удаление файлов в директории по файлу путей
+        //==================================================================
+
+        private void buttonChoiceFileText_Click(object sender, EventArgs e)
+        {
+            Stream myStream = null;
+            List <string> lStringsFile = new List<string>();
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            //openFileDialog.InitialDirectory = @"E:\Work\W_INS_KMO\Tirs(АДЛБ.181)_v3\srcCB_tirs_v3\EFSK.5005X.12\build\src";
+            openFileDialog.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.FilterIndex = 2;
+            openFileDialog.RestoreDirectory = true;
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                List<string> lPath = new List<string>();
+
+                try
+                { // открытие файла
+
+                    if ((myStream = openFileDialog.OpenFile()) != null)
+                    {
+                        using (myStream)
+                        { // считываем выбранный файл
+                            StreamReader readFile = new StreamReader(myStream);
+                            string line = "";
+                            //int countLine = 0;
+                            // считываем по строке файл
+                            while ((line = readFile.ReadLine()) != null)
+                            {
+                                // сохраняем в лист строки
+                                lStringsFile.Add(line);
+                                //countLine++;
+                            }
+                            readFile.Close();
+                            //Console.WriteLine(countLine);
+                        }
+
+                       
+                        foreach(var l in lStringsFile)
+                        {
+                            string [] tmp = l.Split(new char[] { '\t' } );
+                            if (tmp.Length != 2)
+                                continue;
+                            else lPath.Add(tmp[1]);
+                        }
+                    }
+
+                    foreach(var d in lPath)
+                    {
+                        File.Delete(d);
+                    }
+                    MessageBox.Show("Delete files complite");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Origial error:" + ex.Message);
+                }
+            }
+        }
     }
 }

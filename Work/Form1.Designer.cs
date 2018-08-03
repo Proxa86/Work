@@ -51,9 +51,9 @@
             this.tabPageJava = new System.Windows.Forms.TabPage();
             this.tabPageC = new System.Windows.Forms.TabPage();
             this.tabPageDif = new System.Windows.Forms.TabPage();
-            this.buttonChoiceFileText = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.buttonChoiceFolder = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.buttonChoiceFileText = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPageJava.SuspendLayout();
             this.tabPageC.SuspendLayout();
@@ -293,14 +293,14 @@
             this.tabPageDif.Text = "Different";
             this.tabPageDif.UseVisualStyleBackColor = true;
             // 
-            // buttonChoiceFileText
+            // buttonChoiceFolder
             // 
-            this.buttonChoiceFileText.Location = new System.Drawing.Point(12, 101);
-            this.buttonChoiceFileText.Name = "buttonChoiceFileText";
-            this.buttonChoiceFileText.Size = new System.Drawing.Size(96, 23);
-            this.buttonChoiceFileText.TabIndex = 22;
-            this.buttonChoiceFileText.Text = "ChoiceFile";
-            this.buttonChoiceFileText.UseVisualStyleBackColor = true;
+            this.buttonChoiceFolder.Location = new System.Drawing.Point(147, 101);
+            this.buttonChoiceFolder.Name = "buttonChoiceFolder";
+            this.buttonChoiceFolder.Size = new System.Drawing.Size(83, 23);
+            this.buttonChoiceFolder.TabIndex = 24;
+            this.buttonChoiceFolder.Text = "ChoiceFolder";
+            this.buttonChoiceFolder.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -311,14 +311,15 @@
             this.label6.TabIndex = 23;
             this.label6.Text = "Удаление файлов по списку";
             // 
-            // buttonChoiceFolder
+            // buttonChoiceFileText
             // 
-            this.buttonChoiceFolder.Location = new System.Drawing.Point(147, 101);
-            this.buttonChoiceFolder.Name = "buttonChoiceFolder";
-            this.buttonChoiceFolder.Size = new System.Drawing.Size(83, 23);
-            this.buttonChoiceFolder.TabIndex = 24;
-            this.buttonChoiceFolder.Text = "ChoiceFolder";
-            this.buttonChoiceFolder.UseVisualStyleBackColor = true;
+            this.buttonChoiceFileText.Location = new System.Drawing.Point(12, 101);
+            this.buttonChoiceFileText.Name = "buttonChoiceFileText";
+            this.buttonChoiceFileText.Size = new System.Drawing.Size(96, 23);
+            this.buttonChoiceFileText.TabIndex = 22;
+            this.buttonChoiceFileText.Text = "ChoiceFile";
+            this.buttonChoiceFileText.UseVisualStyleBackColor = true;
+            this.buttonChoiceFileText.Click += new System.EventHandler(this.buttonChoiceFileText_Click);
             // 
             // Form1
             // 
